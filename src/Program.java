@@ -15,6 +15,11 @@ public class Program {
 		
 		mh.heapSort();
 		
+		mh = new MaxHeap(new int[]{3,55,34,54,24,5,100,66,66,66, 1,0 ,1000});
+		mh.heapSort();
+		
+		mh.printMaxHeap();
+		
 
 	}
 

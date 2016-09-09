@@ -1,4 +1,5 @@
 //https://courses.csail.mit.edu/6.006/fall10/handouts/recitation10-8.pdf
+//https://begeeben.wordpress.com/2012/08/21/heap-sort-in-c/
 public class MaxHeap {
 
 	int[] heap;
@@ -20,25 +21,11 @@ public class MaxHeap {
     }
     public int leftChildOf(int i)
     {
-    	i++;
-    	if (2 * i <= heap.length)
-    	{
-    		return (2 * i) -1;
-    	}	
-    	else {
-    		return -1;
-    	}
+    	return (i + 1) * 2 -1;
     }
 	  public int rightChildOf(int i )
 	  {
-		   i ++;
-			if (2 * i  + 1 <= heap.length)
-	    	{
-	    		return 2 * i;
-	    	}	
-	    	else {
-	    		return -1;
-	    	}
+		  return (i + 1) * 2;
 		  
 	  }
 	  public void maxHeapify(int i){
@@ -46,14 +33,14 @@ public class MaxHeap {
 		int leftindex = this.leftChildOf(i);
 		int rightindex = this.rightChildOf(i);
 		int largest =0;
-		if(leftindex > -1 && leftindex < heapsize && heap[leftindex] > heap[i])
+		if(leftindex < heapsize && heap[leftindex] > heap[i])
 		{
 			largest = leftindex;	
 		}
 		else
 			largest = i;
 		
-		if(rightindex > -1 && rightindex < heapsize && heap[rightindex] > heap[largest])
+		if(rightindex < heapsize && heap[rightindex] > heap[largest])
 		{
 			largest = rightindex;
 		}
@@ -77,6 +64,7 @@ public class MaxHeap {
 	  }
 	  public void heapSort()
 	  {
+		  heapsize = heap.length;
 		  buildMaxHeap();
 		  for(int i = heap.length-1; i >0; i --)
 		  {
@@ -88,6 +76,11 @@ public class MaxHeap {
 		  }
 		  
 
+	  }
+	  public void printMaxHeap()
+	  {
+		  String asstring = java.util.Arrays.toString(heap);
+		  System.out.println(asstring);
 	  }
 }
 
