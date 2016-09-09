@@ -13,32 +13,6 @@ public class MaxHeap {
 		heapsize = arry.length;
 	}
 	
-    public void buildheap()  
-    {  
-    	int[] data = heap;
-    	//you have to start at the end of the heap and work up so the length -1 represents the end, which will be the last child node
-        int currentNodeIndex = data.length - 1;  
-        while (currentNodeIndex >= 0)  
-        {  
-        	//whatever node you are looking at, you need to find its parent so that you can compare and swap
-        	//this is the formula for getting the parent index of any other index
-            int parentIndex = (currentNodeIndex + 1) / 2 - 1;  
-            //j is now the index of the parent
-            
-            
-            int parentValue = data[parentIndex];  
-            int nodeValue = data[currentNodeIndex];
-            //v is now the value of the parent 
-            if (parentValue < (nodeValue)  || parentValue == (nodeValue))  
-            {  
-            	  data[currentNodeIndex] = data[parentIndex];  
-                  data[parentIndex] = nodeValue;  
-    
-            }  
-  
-          currentNodeIndex--;
-        }  
-    }  
     public int parentOf(int childIndex)
     {
     	return (childIndex + 1) / 2 - 1;  
@@ -57,9 +31,10 @@ public class MaxHeap {
     }
 	  public int rightChildOf(int i )
 	  {
+		   i ++;
 			if (2 * i  + 1 <= heap.length)
 	    	{
-	    		return 2 * i + 1;
+	    		return 2 * i;
 	    	}	
 	    	else {
 	    		return -1;
@@ -71,14 +46,14 @@ public class MaxHeap {
 		int leftindex = this.leftChildOf(i);
 		int rightindex = this.rightChildOf(i);
 		int largest =0;
-		if(leftindex <= heapsize && heap[leftindex] > heap[i])
+		if(leftindex > -1 && leftindex < heapsize && heap[leftindex] > heap[i])
 		{
 			largest = leftindex;	
 		}
 		else
 			largest = i;
 		
-		if(rightindex <= heapsize && heap[rightindex] < heap[largest])
+		if(rightindex > -1 && rightindex < heapsize && heap[rightindex] > heap[largest])
 		{
 			largest = rightindex;
 		}
@@ -94,7 +69,7 @@ public class MaxHeap {
 	  public void buildMaxHeap()
 	  {
 
-		  for(int i = heap.length/2 ; i >=1 ; i --)
+		  for(int i = heap.length/2 ; i >=0 ; i --)
 		  {
 			  this.maxHeapify(i);
 		  }
@@ -102,6 +77,16 @@ public class MaxHeap {
 	  }
 	  public void heapSort()
 	  {
+		  buildMaxHeap();
+		  for(int i = heap.length-1; i >0; i --)
+		  {
+			int temp = heap[i];
+			heap[i] = heap[0];
+			heap[0] = temp;
+			heapsize --;
+			maxHeapify(0);
+		  }
+		  
 
 	  }
 }

@@ -13,7 +13,7 @@ public class Program {
 		child = mh.leftChildOf(4);
 		child = mh.leftChildOf(6);
 		
-		mh.buildMaxHeap();
+		mh.heapSort();
 		
 
 	}
