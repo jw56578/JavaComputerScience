@@ -1,5 +1,6 @@
 
-  
+  //http://www.java2novice.com/java-sorting-algorithms/quick-sort/
+
 
  //need to allow choosing of pivot point
 public class QuickSort {

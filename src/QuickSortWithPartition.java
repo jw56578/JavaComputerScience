@@ -1,4 +1,5 @@
 /*
+https://www.nczonline.net/blog/2012/11/27/computer-science-in-javascript-quicksort/
 
 12 points: Implement a recursive method named quicksort. Implement quicksort as in the slides/textbook, using the rightmost element of the
  subarray as the pivot (the "naive" pivot choice). One parameter will be an array to sort. Two more parameters will be the start and end 
@@ -9,7 +10,7 @@
   
 
  
-12 points: Once you get your partition and quicksort methods working correctly, create a recursive method called randomizedQuicksort as 
+create a recursive method called randomizedQuicksort as 
 in the slides/textbook, which is extremely similar to quicksort above. Its parameters, return value, and purpose are the same as
  the above quicksort method.  The only difference is the choice of pivot.  First, swap a randomly selected element in the subarray 
  with the rightmost element of the subarray, then proceed as above to use the rightmost element as the pivot, by invoking partition
@@ -61,19 +62,27 @@ public class QuickSortWithPartition {
 	}
 	
 	void randomizedQuicksort(int[] items, int left, int right) {
-
+		
+		int randomindex = rand.nextInt(right - left);
+		int temp = items[randomindex];
+		items[randomindex] = items[items.length-1];
+		items[items.length-1] = temp;
+		randomizedQuicksortInternal(items,left,right);
+	}
+	
+	private void randomizedQuicksortInternal(int[] items, int left, int right) {
 	    int index;
 	    
 	    if (items.length > 1) {
-	    	int pivot = items[left + rand.nextInt(right - left)];
+	    	int pivot = items[right -1];//items[left + rand.nextInt(right - left)];
 	        index = partition(items, left, right,pivot);
 
 	        if (left < index - 1) {
-	        	randomizedQuicksort(items, left, index - 1);
+	        	randomizedQuicksortInternal(items, left, index - 1);
 	        }
 
 	        if (index < right) {
-	        	randomizedQuicksort(items, index, right);
+	        	randomizedQuicksortInternal(items, index, right);
 	        }
 
 	    }
