@@ -6,7 +6,7 @@ public class TestUsingJar {
 	
 	public TestUsingJar()
 	{
-		Drawing d = new Drawing();
+		
 	
 	}
 }

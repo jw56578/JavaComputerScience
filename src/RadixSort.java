@@ -56,6 +56,7 @@ public class RadixSort {
 	    }
 	    //this is the most common implementation found when searching on you tube for an explanation
 	    //yet the most common code example was that of the other radixsort method, stupid CS.
+	    //http://www.geekviewpoint.com/java/sorting/radixsort
 	    public void radixsort2(int[] input) {
 	    	  final int RADIX = 10;
 	    	  // declare and initialize bucket[]
