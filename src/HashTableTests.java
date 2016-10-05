@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import HashTable.ChainedHashTable;
+import HashTable.OpenAddressedHashTable;
 
 public class HashTableTests {
 
@@ -14,7 +15,7 @@ public class HashTableTests {
 	each time.
 	 * */
 	@Test
-	public void testHashTable() {
+	public void testChainedHashTable() {
 		ChainedHashTable cht = new ChainedHashTable(20);
 		
 		
@@ -39,6 +40,46 @@ public class HashTableTests {
 		cht.delete(3);
 		cht.printTable();
 		
+	}
+	@Test
+	public void testOpenAddressedHashTable() throws Exception {
+		OpenAddressedHashTable cht = new OpenAddressedHashTable(20);
+		
+		
+		
+		String test1 = "hello";
+		String test2 = "hello world";
+		String test3 = "hello 3";
+		String test4 = "hello world 4";
+		
+		cht.insert(1);
+		cht.insert(2);
+		cht.insert(3);
+		cht.insert(4);
+		cht.insert(5);
+		cht.insert(6);
+		cht.insert(7);
+		cht.insert(8);
+		cht.insert(9);
+		cht.insert(10);
+		cht.insert(11);
+		cht.insert(12);
+		cht.insert(13);
+		cht.insert(14);
+		cht.insert(15);
+		cht.insert(16);
+		
+		
+		cht.printTable();
+		
+		int find1 = cht.search(1);
+		System.out.println(find1);
+		
+		int find5 = cht.search(5);
+		System.out.println(find5);
+		
+		cht.delete(3);
+		cht.printTable();
 	}
 
 }
