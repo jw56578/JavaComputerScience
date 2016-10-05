@@ -81,6 +81,10 @@ public class Shape {
 		
 		Triangle t = new Triangle(d);
 		t.draw(10, 10, 20, 10, 15, 40);
+		
+		
+		Diamond di = new Diamond(d);
+		di.draw(100, 100, 200, 300, 100, 500,0,300);
 		//for(int i = 0; i < 100; i ++){
 		//	for(int a = 0; a < 100;a ++){
 		//		d.showPoint(i, a);
