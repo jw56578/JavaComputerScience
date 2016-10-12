@@ -1,3 +1,4 @@
+import Shapes.MyDrawing;
 import Shapes.Shape;
 import csci348.drawings.Drawing;
 
@@ -6,7 +7,7 @@ import csci348.drawings.Drawing;
 public class Program {
 
 	public static void main(String[] args) {
-		Shape shape = new Shape();
+		MyDrawing d = new MyDrawing(600,600);
 		
 	}
 	public static void TestQuickSort()

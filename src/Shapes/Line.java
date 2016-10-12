@@ -2,7 +2,7 @@ package Shapes;
 
 public class Line {
 
-	public static void draw(MyDrawing drawing, int x1, int x2, int y1, int y2)
+	public static void draw(MyDrawing drawing,Shape s, int x1, int x2, int y1, int y2)
 	{
 		int dx = Math.abs(x2 - x1);
 		int dy = Math.abs(y2 - y1);
@@ -13,6 +13,8 @@ public class Line {
 		int err = dx - dy;
 
 		while (true) {
+			Point p = new Point(x1, y1);
+			s.addPoint(p);
 			drawing.showPoint(x1, y1);
 
 		    if (x1 == x2 && y1 == y2) {

@@ -1,6 +1,8 @@
 package Shapes;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 
 import csci348.drawings.Drawing;
 import csci348.drawings.SimpleDrawing;
@@ -37,7 +39,6 @@ Tasks
 
 1. Draw upward and downward pointing triangles. Triangles may have any shape you like.
 
-2. Draw circles.
 
 3. Draw parallelograms. Parallelograms may have any shape you like.
 
@@ -63,32 +64,34 @@ CSCI 373 Fall 2016
 
 you develop your enhancements.
 
-Submission
 
-The assignment is due Thursday, October 6, at midnight. Place all your source files, a pdf of your
-
-change log, and any other documentation in a folder, zip it, and submit via Moodle.
  */
 public class Shape {
+	List<Point> points = new ArrayList<Point>();
 	public Shape()
 	{
-		//csci348.drawings.DrawingFrame	df = new csci348.drawings.DrawingFrame();
 		
-		MyDrawing d = new MyDrawing(600,600);
-
-		Circle c = new Circle(d);
-		c.draw(100, 100, 60);
+	}
+	public void draw()
+	{
 		
-		Triangle t = new Triangle(d);
-		t.draw(10, 10, 20, 10, 15, 40);
-		
-		
-		Diamond di = new Diamond(d);
-		di.draw(100, 100, 200, 300, 100, 500,0,300);
-		//for(int i = 0; i < 100; i ++){
-		//	for(int a = 0; a < 100;a ++){
-		//		d.showPoint(i, a);
-		//	}
-		//
+	}
+	public void addPoint(Point p)
+	{
+		points.add(p);
+	}
+	
+	public boolean containsPoint(Point test)
+	{
+      int i;
+	  int j;
+	  boolean result = false;
+	  for (i = 0, j = points.size() - 1; i < points.size(); j = i++) {
+	    if ((points.get(i).y > test.y) != (points.get(j).y > test.y) &&
+	        (test.x < (points.get(j).x - points.get(i).x) * (test.y - points.get(i).y) / (points.get(j).y-points.get(i).y) + points.get(i).x)) {
+	      result = !result;
+	     }
+	  }
+	  return result;
 	}
 }
