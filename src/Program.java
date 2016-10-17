@@ -1,3 +1,4 @@
+import BST.BSTTest;
 import Shapes.MyDrawing;
 import Shapes.Shape;
 import csci348.drawings.Drawing;
@@ -7,7 +8,8 @@ import csci348.drawings.Drawing;
 public class Program {
 
 	public static void main(String[] args) {
-	TestShapes ts = new TestShapes();
+	 BSTTest test = new BSTTest();
+	 test.bstSort();
 		
 	}
 	public static void TestQuickSort()

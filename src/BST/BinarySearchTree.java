@@ -24,6 +24,8 @@ public class BinarySearchTree {
 	}
 	public void preOrder(BSTNode node)
 	{
+		if(node ==  null)
+			return;
 		System.out.println(node.key + " ");
 		preOrder(node.left);
 		preOrder(node.right);
@@ -31,12 +33,16 @@ public class BinarySearchTree {
 	}
 	public void inOrder(BSTNode node)
 	{
+		if(node ==  null)
+			return;
 		inOrder(node.left);
 		System.out.println(node.key + " ");
 		inOrder(node.right);
 	}
 	public void postOrder(BSTNode node)
 	{
+		if(node ==  null)
+			return;
 		preOrder(node.left);
 		preOrder(node.right);
 		System.out.println(node.key + " ");
@@ -107,10 +113,6 @@ public class BinarySearchTree {
 			x = x.p;
 		return x.p;
 	}
-	public BSTNode search(int k)
-	{
-		return search(root,k);
-	}
 	public BSTNode maximum(BSTNode node)
 	{
 		while(node.right != null)
@@ -132,7 +134,7 @@ public class BinarySearchTree {
 		if(node == null)
 			return null;
 		if(k == node.key)
-			return root;
+			return node;
 		if(k < node.key)
 			return search(node.left,k);
 		else

@@ -14,5 +14,13 @@ public class BSTNode {
 	public BSTNode right;
 	public BSTNode left;
 	public int key;
+	
+	public BSTNode(int key)
+	{
+		p  = null;
+		right = null;
+		left = null;
+		this.key = key;
+	}
 
 }
