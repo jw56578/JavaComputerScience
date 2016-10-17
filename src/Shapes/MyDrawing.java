@@ -15,39 +15,6 @@ public class MyDrawing extends csci348.drawings.SimpleDrawing
 	public MyDrawing(int width, int height)
 	{
 		super(width,height);
-		
-		//Rectangle quad = new Rectangle(this,new Point(55,55), 333,55);
-		//Triangle tri = new Triangle(this,10, 10, 200, 100, 15, 400);
-		
-		Arrow a = new Arrow(this,new Point(55,55),"down",100,300);
-		shapes.add(a);
-		
-		 a = new Arrow(this,new Point(222,222),"right",300,100);
-		 shapes.add(a);
-		/*
-		//csci348.drawings.DrawingFrame	df = new csci348.drawings.DrawingFrame();
-		Circle c = new Circle(this,100, 100, 60);
-		shapes.add(c);
-		c = new Circle(this,555, 555, 60);
-		shapes.add(c);
-		
-		
-		//arrow
-		
-		
-		
-		
-		Triangle t = new Triangle(this,10, 10, 200, 100, 15, 400);
-		shapes.add(t);
-		t = new Triangle(this,33, 33, 66, 66, 33, 444);
-		shapes.add(t);
-
-		
-		Quadrilateral di = new Quadrilateral(this,100, 100, 200, 300, 100, 500,0,300);
-		shapes.add(di);
-		
-		*/
-		
 		draw();
 	}
 	public void draw()
@@ -60,11 +27,16 @@ public class MyDrawing extends csci348.drawings.SimpleDrawing
 				shape.draw();
 		}
 	}
+	public void addShape(Shape s)
+	{
+		shapes.add(s);
+		draw();
+	}
 	void remove(Point p)
 	{
 		if(this.shapes == null)
 			return;
-		for(int i = shapes.size()-1; i >=0; i++)
+		for(int i = shapes.size()-1; i >=0; i--)
 		{
 			Shape shape = shapes.get(i);
 			if(shape != null && shape.containsPoint(p))

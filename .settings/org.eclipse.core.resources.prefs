@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/BST/BSTNode.java=UTF-8
+encoding//src/BST/BSTTest.java=UTF-8
+encoding//src/BST/BinarySearchTree.java=UTF-8
 encoding//src/HashTable/ChainedHashTable.java=UTF-8
 encoding//src/HashTable/OpenAddressedHashTable.java=UTF-8
 encoding//src/HashTableTests.java=UTF-8

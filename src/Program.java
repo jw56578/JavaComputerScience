@@ -7,7 +7,7 @@ import csci348.drawings.Drawing;
 public class Program {
 
 	public static void main(String[] args) {
-		MyDrawing d = new MyDrawing(600,600);
+	TestShapes ts = new TestShapes();
 		
 	}
 	public static void TestQuickSort()
